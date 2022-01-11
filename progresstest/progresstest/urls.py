@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include, re_path 
-from testdb.views import SourcesViewSet,UserViewSet,GroupViewSet
+from testdb.views import SourcesViewSet,UserViewSet,GroupViewSet,login
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 from testdb.serializers import UserSerializer, GroupSerializer, SourcesSerializers
@@ -34,6 +34,7 @@ router.register(r'sources', SourcesViewSet)
 urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
+    path('api/login', login),
     path('source/',include('testdb.urls'))
     
 ]       
